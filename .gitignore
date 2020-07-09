@@ -4,3 +4,5 @@
 !/.gitignore
 !/ProjectSettings
 !/Library
+/Library/ShaderCache.db
+/Library/shadercompiler-UnityShaderCompiler.exe0.log
