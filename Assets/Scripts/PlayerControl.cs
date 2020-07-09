@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
     public Rigidbody2D rb;
     public float speed;
     public float jumpSpeed;
     bool grounded = true;
+    public Camera cam;
+    public int coyoteTime;
+    int framesSinceLeftGround = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -28,5 +32,10 @@ public class PlayerControl : MonoBehaviour {
     private void OnCollisionExit2D(Collision2D collision)
     {
         grounded = false;
+    }
+
+    public void Die()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
