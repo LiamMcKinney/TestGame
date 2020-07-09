@@ -1,12 +1,11 @@
 #only track Assets folder.
-#/*
+/*
 !/Assets
 !/.gitignore
 !/ProjectSettings
 !/Library
-#/Library/ShaderCache.db
-#/Library/shadercompiler-UnityShaderCompiler.exe0.log
-#/Library/metadata
-#/Library/Artifacts
+/Library/ShaderCache.db
+/Library/shadercompiler-UnityShaderCompiler.exe0.log
+/Library/metadata
+/Library/Artifacts
 /Temp
-/.vs
