@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
     public float jumpSpeed;
     bool grounded = true;
     public Camera cam;
+    public Vector3 offset;
     public int coyoteTime;
     int framesSinceLeftGround = 0;
     bool canJump;
@@ -19,6 +20,7 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        cam.transform.position = transform.position + offset;
         framesSinceLeftGround++;
         if (grounded)
         {
