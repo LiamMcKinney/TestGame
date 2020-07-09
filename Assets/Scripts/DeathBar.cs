@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeathPlane : MonoBehaviour
+public class DeathBar : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,10 +18,12 @@ public class DeathPlane : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerControl player = collision.otherCollider.GetComponent<PlayerControl>();
+        print("hit");
+        PlayerControl player = collision.collider.gameObject.GetComponent<PlayerControl>();
 
         if (player != null)
         {
+            print("ded");
             player.Die();
         }
     }
