@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour {
     public Camera cam;
     public int coyoteTime;
     int framesSinceLeftGround = 0;
+    bool canJump;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,7 +19,27 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, Input.GetKeyDown(KeyCode.Space) && grounded ? jumpSpeed : rb.velocity.y);
+        framesSinceLeftGround++;
+        if (grounded)
+        {
+            framesSinceLeftGround = 0;
+        }
+
+        if(framesSinceLeftGround > coyoteTime)
+        {
+            canJump = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && canJump)
+        {
+            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, jumpSpeed);
+            canJump = false;
+        }
+        else
+        {
+            rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, rb.velocity.y);
+        }
+        
 	}
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -26,6 +47,7 @@ public class PlayerControl : MonoBehaviour {
         if (collision.GetContact(0).normal.Equals(Vector2.up))
         {
             grounded = true;
+            canJump = true;
         }
     }
 
