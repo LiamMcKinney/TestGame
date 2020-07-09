@@ -685,7 +685,8 @@ MonoBehaviour:
   rb: {fileID: 580214471}
   speed: 5
   jumpSpeed: 10
-  cam: {fileID: 0}
+  cam: {fileID: 519420031}
+  offset: {x: 0, y: 0, z: -10}
   coyoteTime: 0
 --- !u!61 &580214470
 BoxCollider2D:
